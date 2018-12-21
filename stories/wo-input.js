@@ -96,7 +96,7 @@ storiesOf("WoInput", module)
     components: { WoInput },
     template: `
             <div>
-                <wo-input label="其他添加" type="checkbox" v-model="value">
+                <wo-input label="其他添加" type="checkbox">
                     <label>
                         <input type="checkbox" v-model="check1" />加糖
                     </label>
@@ -121,7 +121,7 @@ storiesOf("WoInput", module)
     components: { WoInput },
     template: `
             <div>
-                <wo-input label="其他添加" type="checkbox" v-model="value">
+                <wo-input label="其他添加" type="checkbox">
                     <label>
                         <input type="checkbox" value="加糖" v-model="checkAll" />加糖
                     </label>
