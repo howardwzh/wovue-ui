@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import WoInput from "../packages/button/WoInput.vue";
+import WoInput from "../packages/input/WoInput.vue";
 const icon = require('./assets/images/boy.png')
 
 storiesOf("WoInput", module)
@@ -136,6 +136,40 @@ storiesOf("WoInput", module)
     data () {
         return {
             checkAll: ['加牛奶']
+        }
+    }
+  }))
+  .add("label + select", () => ({
+    components: { WoInput },
+    template: `
+            <div>
+                <wo-input label="选择其他" type="select" v-model="value" :selectItems="selectItems" />
+                <div class="result">
+                    选择其他: {{value}}
+                </div>
+            </div>`,
+    data () {
+        return {
+            value: 0,
+            selectItems: [{
+                name: '牛奶',
+                value: 1
+            },{
+                name: '苹果',
+                value: 2
+            },{
+                name: '李子',
+                value: 3
+            },{
+                name: '鸡腿',
+                value: 4
+            },{
+                name: '鸭脖',
+                value: 5
+            },{
+                name: '坚果',
+                value: 6
+            }]
         }
     }
   }))
