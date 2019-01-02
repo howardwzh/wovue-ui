@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build-storybook": "build-storybook -s public",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
@@ -10,8 +11,6 @@
     "@storybook/vue": "^4.0.7",
     "babel-core": "^6.26.3",
     "babel-loader": "7",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17"
   },

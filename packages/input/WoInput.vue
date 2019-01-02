@@ -106,6 +106,13 @@
       v-if="unit"
     >{{unit}}</b>
     <!-- common unit# -->
+    <div
+      class="wo-input-btn"
+      v-if="$slots.btn"
+    >
+      <slot name="btn"></slot>
+    </div>
+    
   </label>
 </template>
 
@@ -234,6 +241,19 @@ export default {
 }
 .wo-input-unit {
   padding: 0 6px;
+}
+.wo-input-btn button {
+  white-space: nowrap;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #f55437;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
 }
 /** normal input */
 .wo-input-area {

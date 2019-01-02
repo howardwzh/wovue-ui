@@ -72,6 +72,26 @@ storiesOf("WoInput", module)
         }
     }
   }))
+  .add("label + value + btn", () => ({
+    components: { WoInput },
+    template: `
+        <div>
+            <wo-input label="金额" type="number" v-model="value">
+                <button class="btn" slot="btn" @click="getCheckCode">获取验证码</button>
+            </wo-input>
+            <div class="result">result: {{value}}</div>
+        </div>`,
+    data () {
+        return {
+            value: 2000
+        }
+    },
+    methods: {
+        getCheckCode () {
+            alert('获取验证码')
+        }
+    }
+  }))
   .add("label + radio", () => ({
     components: { WoInput },
     template: `
