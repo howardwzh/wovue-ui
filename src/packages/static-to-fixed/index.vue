@@ -6,14 +6,14 @@
 
 <script>
 export default {
-  name: "WoStaticToFixed",
-  props: {   
+  name: 'WoStaticToFixed',
+  props: {
     keyPos: {
       type: Number,
       default: 0
     }
   },
-  data() {
+  data () {
     return {
       needToFixed: false,
       domProperty: {}
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     checkNeedToFixed () {
-      this.needToFixed = window.scrollY  > this.keyScrollPos
+      this.needToFixed = window.scrollY > this.keyScrollPos
     },
     getDomProperty () {
       const boundingClientRect = this.$el.children[0].getBoundingClientRect()
@@ -62,8 +62,5 @@ export default {
       setTimeout(this.checkNeedToFixed, 0)
     }
   }
-};
+}
 </script>
-
-<style lang="css" scoped>
-</style>

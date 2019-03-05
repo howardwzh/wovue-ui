@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import woBrowser from "../../packages/utils/wo-browser";
+import woBrowser from "../../src/packages/utils/wo-browser";
 
 storiesOf("wo-browser", module)
   .add("获取当前移动浏览器信息", () => ({

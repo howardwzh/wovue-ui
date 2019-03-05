@@ -112,27 +112,27 @@
     >
       <slot name="btn"></slot>
     </div>
-    
+
   </label>
 </template>
 
 <script>
 export default {
-  name: "WoInput",
+  name: 'WoInput',
   props: {
     icon: String,
     label: String,
     type: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     name: {
       type: String,
-      default: ""
+      default: ''
     },
     placeholder: {
       type: String,
-      default: "请输入内容"
+      default: '请输入内容'
     },
     maxLength: {
       type: Number
@@ -145,64 +145,63 @@ export default {
     unit: String,
     format: {
       type: String,
-      default: "value,name"
+      default: 'value,name'
     }
   },
-  data() {
+  data () {
     return {
       val: this.value,
       isShow: false,
-      valueKey: this.format.split(",")[0],
-      nameKey: this.format.split(",")[1]
-    };
+      valueKey: this.format.split(',')[0],
+      nameKey: this.format.split(',')[1]
+    }
   },
-  mounted() {
-    if (this.type === "radio" && this.default) {
-      this.val = this.default;
-      this.handleChange();
+  mounted () {
+    if (this.type === 'radio' && this.default) {
+      this.val = this.default
+      this.handleChange()
     }
   },
   computed: {
-    currentName() {
-      if (!this.val && this.selectItems)
-        return this.placeholder.replace(/输入/, '选择');
+    currentName () {
+      if (!this.val && this.selectItems) { return this.placeholder.replace(/输入/, '选择') }
       const keyItem = this.selectItems.find(
         item => item[this.valueKey] === this.val
-      );
-      return keyItem[this.nameKey];
+      )
+      return keyItem[this.nameKey]
     }
   },
   watch: {
-    value: function(val) {
-      this.val = val;
+    value: function (val) {
+      this.val = val
     }
   },
   methods: {
-    handleKeyup() {
-      const val = this.val;
-      this.handleMaxLength(val, this.onChange);
+    handleKeyup () {
+      const val = this.val
+      this.handleMaxLength(val, this.onChange)
     },
-    handleMaxLength(val) {
+    handleMaxLength (val) {
       if (this.maxLength && val.length > this.maxLength) {
-        this.val = val.slice(0, this.maxLength);
+        this.val = val.slice(0, this.maxLength)
       }
-      this.$emit("input", val);
+      this.$emit('input', val)
     },
-    handleChange() {
-      this.$emit("input", this.val);
+    handleChange () {
+      this.$emit('input', this.val)
     },
-    handleClick(e, item) {
-      this.$emit("input", item[this.valueKey]);
-      this.isShow = false;
+    handleClick (e, item) {
+      this.$emit('input', item[this.valueKey])
+      this.isShow = false
     },
-    showSelectPop() {
-      this.isShow = true;
+    showSelectPop () {
+      this.isShow = true
     },
-    hideSelectPop() {
-      this.isShow = false;
+    hideSelectPop () {
+      this.isShow = false
     }
   }
-};
+}
 </script>
 
 <style lang="css">

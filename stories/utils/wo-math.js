@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import * as woMath from "../../packages/utils/wo-math";
+import * as woMath from "../../src/packages/utils/wo-math";
 
 storiesOf("wo-math", module)
   .add("生成guid", () => ({

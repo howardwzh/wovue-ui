@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import WoStaticToFixed from "../packages/static-to-fixed/WoStaticToFixed.vue";
+import WoStaticToFixed from "../src/packages/static-to-fixed";
 
 storiesOf("WoStaticToFixed", module)
   .add("base + default key-pos=0", () => ({

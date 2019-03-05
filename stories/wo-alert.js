@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import WoAlert from "../packages/alert/WoAlert.vue";
+import WoAlert from "../src/packages/alert";
 
 storiesOf("WoAlert", module)
 .add("单弹窗 + 单个按钮", () => ({

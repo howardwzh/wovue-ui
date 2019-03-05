@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import WoInput from "../packages/input/WoInput.vue";
+import WoInput from "../src/packages/input";
 const icon = require('./assets/images/boy.png')
 
 storiesOf("WoInput", module)

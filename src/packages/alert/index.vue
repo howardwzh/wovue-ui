@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "WoAlert",
+  name: 'WoAlert',
   data () {
     return {
       data: []
@@ -34,14 +34,14 @@ export default {
       switch (true) {
         case !!(btn.callback && btn.keep):
           btn.callback()
-          break;
+          break
         case !!btn.callback:
           btn.callback()
           this.hide()
-          break;
+          break
         default:
           this.hide()
-          break;
+          break
       }
     },
     show (item) {
