@@ -13,17 +13,17 @@ export default {
       default: 0
     }
   },
-  data () {
+  data() {
     return {
       needToFixed: false,
       domProperty: {}
     }
   },
   computed: {
-    keyScrollPos () {
+    keyScrollPos() {
       return this.domProperty.top - this.keyPos
     },
-    fixedStyle () {
+    fixedStyle() {
       return {
         position: 'fixed',
         width: `${this.domProperty.width}px`,
@@ -33,7 +33,7 @@ export default {
       }
     }
   },
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.getDomProperty()
     }, 0)
@@ -43,15 +43,15 @@ export default {
     })
     window.addEventListener('scroll', this.checkNeedToFixed)
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('resize', this.getDomProperty)
     window.removeEventListener('scroll', this.checkNeedToFixed)
   },
   methods: {
-    checkNeedToFixed () {
+    checkNeedToFixed() {
       this.needToFixed = window.scrollY > this.keyScrollPos
     },
-    getDomProperty () {
+    getDomProperty() {
       const boundingClientRect = this.$el.children[0].getBoundingClientRect()
       this.domProperty = {
         width: this.$el.children[0].offsetWidth,
