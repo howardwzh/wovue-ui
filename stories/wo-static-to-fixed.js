@@ -1,8 +1,8 @@
-import { storiesOf } from "@storybook/vue";
-import WoStaticToFixed from "../src/packages/static-to-fixed";
+import { storiesOf } from '@storybook/vue'
+import WoStaticToFixed from '../src/packages/static-to-fixed'
 
-storiesOf("WoStaticToFixed", module)
-  .add("base + default key-pos=0", () => ({
+storiesOf('WoStaticToFixed', module)
+  .add('base + default key-pos=0', () => ({
     components: { WoStaticToFixed },
     template: `
         <div class="high-box">
@@ -13,7 +13,7 @@ storiesOf("WoStaticToFixed", module)
             </wo-static-to-fixed>
         </div>`
   }))
-  .add("base + custom key-pos=50", () => ({
+  .add('base + custom key-pos=50', () => ({
     components: { WoStaticToFixed },
     template: `
         <div class="high-box">
@@ -24,7 +24,7 @@ storiesOf("WoStaticToFixed", module)
             </wo-static-to-fixed>
         </div>`
   }))
-  .add("in doms + custom key-pos=50", () => ({
+  .add('in doms + custom key-pos=50', () => ({
     components: { WoStaticToFixed },
     template: `
         <div class="high-box">
@@ -40,7 +40,7 @@ storiesOf("WoStaticToFixed", module)
             </div>
         </div>`
   }))
-  .add("init absolute + top 100 + right 100  + custom key-pos=50", () => ({
+  .add('init absolute + top 100 + right 100  + custom key-pos=50', () => ({
     components: { WoStaticToFixed },
     template: `
         <div class="high-box">
@@ -51,7 +51,7 @@ storiesOf("WoStaticToFixed", module)
           </div>
         </div>`
   }))
-  .add("init absolute + bottom 100 + left 100 + custom key-pos=50", () => ({
+  .add('init absolute + bottom 100 + left 100 + custom key-pos=50', () => ({
     components: { WoStaticToFixed },
     template: `
         <div class="high-box">
@@ -61,4 +61,4 @@ storiesOf("WoStaticToFixed", module)
             </wo-static-to-fixed>
           </div>
         </div>`
-  }));
+  }))

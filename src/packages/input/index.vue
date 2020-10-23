@@ -33,21 +33,22 @@
     <!-- There is normal input# -->
 
     <!-- There is radio -->
-    <label
-      class="wo-input-radio"
-      v-if="/radio/.test(type)"
-      v-for="item in radioItems"
-      :key="item.value"
-    >
-      <input
-        :type="type"
-        @change="handleChange"
-        :value="item.value"
-        v-model="val"
-        :readonly="readonly"
-        :name="name"
-      />{{item.label}}
-    </label>
+    <template v-if="/radio/.test(type)">
+      <label
+        class="wo-input-radio"
+        v-for="item in radioItems"
+        :key="item.value"
+      >
+        <input
+          :type="type"
+          @change="handleChange"
+          :value="item.value"
+          v-model="val"
+          :readonly="readonly"
+          :name="name"
+        />{{item.label}}
+      </label>
+    </template>
     <!-- There is radio# -->
 
     <!-- There are checkbox(s) -->
@@ -84,16 +85,17 @@
           ><span class="wo-input-select-pop-box-close-wrap"></span></a>
           <h6 class="wo-input-select-pop-box-title">{{placeholder.replace(/输入/, '选择')}}</h6>
           <dl class="wo-input-select-pop-box-dl">
-            <dd
-              class="wo-input-select-pop-box-dl-dd"
-              v-if="selectItems.length"
-              :class="{'selected': value && item[valueKey] === value}"
-              @click="handleClick($event, item)"
-              v-for="item in selectItems"
-              :key="item[valueKey]"
-            >
-              <b>{{item[nameKey]}}</b>
-            </dd>
+            <template v-if="selectItems.length">
+              <dd
+                class="wo-input-select-pop-box-dl-dd"
+                :class="{'selected': value && item[valueKey] === value}"
+                @click="handleClick($event, item)"
+                v-for="item in selectItems"
+                :key="item[valueKey]"
+              >
+                <b>{{item[nameKey]}}</b>
+              </dd>
+            </template>
           </dl>
         </div>
       </div>
@@ -134,21 +136,19 @@ export default {
       type: String,
       default: '请输入内容'
     },
-    maxLength: {
-      type: Number
-    },
-    value: String | Number,
-    readonly: String | Boolean,
+    maxLength: Number,
+    value: [String, Number],
+    readonly: [String, Boolean],
     radioItems: Array,
     selectItems: Array,
-    default: String | Number,
+    default: [String, Number],
     unit: String,
     format: {
       type: String,
       default: 'value,name'
     }
   },
-  data () {
+  data() {
     return {
       val: this.value,
       isShow: false,
@@ -156,14 +156,14 @@ export default {
       nameKey: this.format.split(',')[1]
     }
   },
-  mounted () {
+  mounted() {
     if (this.type === 'radio' && this.default) {
       this.val = this.default
       this.handleChange()
     }
   },
   computed: {
-    currentName () {
+    currentName() {
       if (!this.val && this.selectItems) { return this.placeholder.replace(/输入/, '选择') }
       const keyItem = this.selectItems.find(
         item => item[this.valueKey] === this.val
@@ -172,32 +172,32 @@ export default {
     }
   },
   watch: {
-    value: function (val) {
+    value: function(val) {
       this.val = val
     }
   },
   methods: {
-    handleKeyup () {
+    handleKeyup() {
       const val = this.val
       this.handleMaxLength(val, this.onChange)
     },
-    handleMaxLength (val) {
+    handleMaxLength(val) {
       if (this.maxLength && val.length > this.maxLength) {
         this.val = val.slice(0, this.maxLength)
       }
       this.$emit('input', val)
     },
-    handleChange () {
+    handleChange() {
       this.$emit('input', this.val)
     },
-    handleClick (e, item) {
+    handleClick(e, item) {
       this.$emit('input', item[this.valueKey])
       this.isShow = false
     },
-    showSelectPop () {
+    showSelectPop() {
       this.isShow = true
     },
-    hideSelectPop () {
+    hideSelectPop() {
       this.isShow = false
     }
   }
