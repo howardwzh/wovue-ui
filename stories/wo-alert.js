@@ -10,13 +10,13 @@ storiesOf('WoAlert', module)
             <button @click="bashAlert">弹窗</button>
             <div class="result">{{status}}</div>
         </div>`,
-    data () {
+    data() {
       return {
         status: '未点击'
       }
     },
     methods: {
-      bashAlert () {
+      bashAlert() {
         this.status = '打开弹窗'
         this.$refs.woAlert.show({
           title: '弹窗标题',
@@ -39,13 +39,13 @@ storiesOf('WoAlert', module)
             <button @click="bashAlert">弹窗</button>
             <div class="result">{{status}}</div>
         </div>`,
-    data () {
+    data() {
       return {
         status: '未点击'
       }
     },
     methods: {
-      bashAlert () {
+      bashAlert() {
         this.status = '打开弹窗'
         this.$refs.woAlert.show({
           title: '弹窗标题',
@@ -77,13 +77,13 @@ storiesOf('WoAlert', module)
             <button @click="bashAlert">多层弹窗</button>
             <div class="result">{{status}}</div>
         </div>`,
-    data () {
+    data() {
       return {
         status: '未点击'
       }
     },
     methods: {
-      bashAlert () {
+      bashAlert() {
         this.status = '打开第一层弹窗'
         this.$refs.woAlert.show({
           title: '第一层弹窗标题',

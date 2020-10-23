@@ -27,7 +27,7 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
       needToFixed: false,
       domProperty: {},
@@ -35,10 +35,10 @@ export default {
     }
   },
   computed: {
-    keyScrollPos () {
+    keyScrollPos() {
       return this.keepOffset ? this.keyPos : this.domProperty.top - this.keyPos
     },
-    fixedStyle () {
+    fixedStyle() {
       return {
         position: 'fixed',
         width: `${this.domProperty.width}px`,
@@ -48,14 +48,14 @@ export default {
         zIndex: 1
       }
     },
-    parentStyle () {
+    parentStyle() {
       return {
         width: `${this.domProperty.width}px`,
         height: `${this.domProperty.height}px`
       }
     }
   },
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.getDomProperty()
     }, 0)
@@ -65,12 +65,12 @@ export default {
     })
     window.addEventListener('scroll', this.checkNeedToFixed)
   },
-  destroyed () {
+  destroyed() {
     window.removeEventListener('resize', this.getDomProperty)
     window.removeEventListener('scroll', this.checkNeedToFixed)
   },
   methods: {
-    checkNeedToFixed () {
+    checkNeedToFixed() {
       if (this.needHoldOn) {
         this.needToFixed = false
       } else if (this.fixedByUp) {
@@ -81,7 +81,7 @@ export default {
         this.needToFixed = window.scrollY > this.keyScrollPos
       }
     },
-    getDomProperty () {
+    getDomProperty() {
       const boundingClientRect = this.$el.children[0].getBoundingClientRect()
       this.domProperty = {
         width: this.$el.children[0].offsetWidth,
